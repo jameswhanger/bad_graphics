@@ -37,7 +37,7 @@ df_sorted$group1 <- as.numeric(df_sorted$rowname)
 df_sorted$group2 <- as.numeric(gsub("V", "", df_sorted$key))
 df_sorted
 
-# Alternative geom_line() plot
-ggplot(df_sorted, aes(group2, value, color=factor(group1))) +
-  geom_line()
+# Alternative geom_area() 
+ggplot(df_sorted, aes(group2, value, color=factor(group1), fill=factor(group1))) +
+  geom_area()
 
