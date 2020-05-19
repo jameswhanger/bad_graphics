@@ -1,0 +1,10 @@
+library("tidyverse")
+
+df <- as.data.frame(matrix(rep(runif(14, 1, 150), 5), 5, 14)) %>% 
+  rownames_to_column() %>% 
+  gather(key="key", value="value", -rowname)
+df
+
+ggplot(df, aes(reorder(key, -value), value)) +   
+  geom_bar(aes(fill = rowname), position = "dodge", stat="identity")
+    
